@@ -153,9 +153,9 @@ public class DbOps implements Constants {
 		MongoDatabase db = Db.getDatabase();
 
 		BasicDBObject regexQuery = new BasicDBObject();
-		BasicDBObject regex = new BasicDBObject("$regex", ".?" + textToSearch + ".?");
+		BasicDBObject regex = new BasicDBObject("$regex", ".?" + textToSearch + ".?").append("$options","i");
 		regexQuery.put(fieldName, regex);
-
+		
 		FindIterable<Document> cursor = db.getCollection("students").find(regexQuery);
 		MongoCursor<Document> iterator = cursor.iterator();
 		while (iterator.hasNext()) {

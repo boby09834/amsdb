@@ -126,7 +126,7 @@ public class Student {
 
 	public static Student fromDocument(Document nextStudent) {
 		return new Student(nextStudent.getString("studentId"), nextStudent.getString("name"),
-				nextStudent.getString("phone"), nextStudent.getString("email"), nextStudent.getString("speciality"),
+				nextStudent.getString("email"), nextStudent.getString("phone"), nextStudent.getString("speciality"),
 				nextStudent.getString("degree"));
 
 	}

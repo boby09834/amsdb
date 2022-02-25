@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
@@ -93,7 +94,7 @@ public abstract class BaseJFrame extends JFrame {
 			File f = filechooser.getSelectedFile();
 			Scanner fileIn;
 			try {
-				fileIn = new Scanner(f);
+				fileIn = new Scanner(f, StandardCharsets.UTF_8.displayName());
 				DefaultTableModel tm = (DefaultTableModel) table.getModel();
 				tm.setRowCount(0);
 				if (fileIn.hasNextLine()) {

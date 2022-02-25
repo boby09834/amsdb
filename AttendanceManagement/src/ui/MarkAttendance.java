@@ -43,10 +43,10 @@ public class MarkAttendance extends BaseJFrame {
 		setTitle("Mark attendance");
 		setPreferredSize(new java.awt.Dimension(980, 650));
 
-		titleLabel.setText("Mark attendance for " + schedule.getTime() + ", " + schedule.getSubject() + ", "
-				+ schedule.getSpeciality());
+		titleLabel.setText("Mark attendance for " + schedule.getDate() + ", " + schedule.getTime() + ", "
+				+ schedule.getSubject() + ", " + schedule.getSpeciality());
 		titleLabel.setFont(new java.awt.Font("Segoe UI", 0, 24));
-		titleLabel.setBounds(110, 0, 750, 40);
+		titleLabel.setBounds(30, 0, 910, 40);
 
 		savebtn.setText("Save");
 		savebtn.addActionListener(new java.awt.event.ActionListener() {
