@@ -69,6 +69,7 @@ public class CheckAttendance extends BaseJFrame {
 		jScrollPane.setViewportView(jTable);
 		panel.add(jScrollPane);
 		jScrollPane.setBounds(0, 110, 970, 490);
+		addPrinting(jTable);
 	}
 
 	private void backAction(java.awt.event.ActionEvent evt) {

@@ -1,10 +1,13 @@
 package common;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
@@ -111,6 +114,33 @@ public abstract class BaseJFrame extends JFrame {
 				fnf.printStackTrace();
 			}
 		}
+	}
+
+	protected void printTable(JTable table) {
+		try {
+			MessageFormat headerFormat = new MessageFormat(titleLabel.getText());
+			if (table.print(JTable.PrintMode.FIT_WIDTH, headerFormat, null)) {
+				JOptionPane.showMessageDialog(null, "Table successfully printed");
+			}
+		} catch (PrinterException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "There was an error printing the table");
+		}
+	}
+
+	protected void addPrinting(JTable jTable) {
+		JButton printBtn = new JButton();
+		printBtn.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				if (((DefaultTableModel) jTable.getModel()).getRowCount() == 0) {
+					JOptionPane.showMessageDialog(null, "Table has no content to print");
+				} else {
+					printTable(jTable);
+				}
+			}
+		});
+		printBtn.setText("Print");
+		this.add(printBtn, BorderLayout.SOUTH);
 	}
 
 	protected void verifyColumnsImported(String[] columns) {

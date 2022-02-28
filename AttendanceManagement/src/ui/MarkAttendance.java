@@ -74,6 +74,7 @@ public class MarkAttendance extends BaseJFrame {
 		panel.add(jScrollPane);
 		jScrollPane.setBounds(0, 110, 970, 490);
 		loadStudents();
+		addPrinting(jTable);
 	}
 
 	private void loadStudents() {
