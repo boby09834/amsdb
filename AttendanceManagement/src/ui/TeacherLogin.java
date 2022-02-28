@@ -76,7 +76,6 @@ public class TeacherLogin extends BaseJFrame {
 	private void loginActionPerformed(java.awt.event.ActionEvent evt) {
 		String enteredUser = usernameField.getText();
 		String enteredPass = String.valueOf(passField.getPassword());
-
 		if (DbOps.verifyTeacher(enteredUser, enteredPass)) {
 			TeacherLoggedIn nw = new TeacherLoggedIn(DbOps.getTeacherByUsername(enteredUser));
 			nw.setVisible(true);
