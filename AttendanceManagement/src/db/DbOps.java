@@ -107,7 +107,6 @@ public class DbOps implements Constants {
 		Set<Student> students = new HashSet<>();
 		students.addAll(searchStudentsByField(textToSearch, "studentId"));
 		students.addAll(searchStudentsByField(textToSearch, "name"));
-		// students.addAll(searchStudentsByField(textToSearch, "phone"));
 		students.addAll(searchStudentsByField(textToSearch, "email"));
 
 		for (Student nextStudent : students) {
