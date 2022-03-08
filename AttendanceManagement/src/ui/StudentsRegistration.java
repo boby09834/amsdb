@@ -127,7 +127,9 @@ public class StudentsRegistration extends BaseJFrame {
 		if (studentIdField.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Student id is empty");
 		} else {
-			DbOps.removeStudent(new Student(studentIdField.getText()));
+			Student studentToRemove = DbOps.getStudentById(studentIdField.getText());
+			DbOps.removeStudent(studentToRemove);
+			JOptionPane.showMessageDialog(null, "Student " + studentToRemove.getName() + " removed successfully");
 		}
 	}
 

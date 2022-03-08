@@ -167,6 +167,12 @@ public class DbOps implements Constants {
 		Db.getDatabase().getCollection("students").deleteOne(new Document("studentId", student.getStudentId()));
 	}
 
+	public static Student getStudentById(String studentId) {
+		Document studentD = Db.getDatabase().getCollection("students").find(new Document("studentId", studentId))
+				.iterator().next();
+		return Student.fromDocument(studentD);
+	}
+
 	public static Teacher getTeacherByUsername(String enteredUser) {
 		Document teacherD = Db.getDatabase().getCollection("teachers").find(new Document("username", enteredUser))
 				.iterator().next();
