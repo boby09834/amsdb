@@ -20,6 +20,7 @@ public class Admin extends BaseJFrame {
 
 		setTitle("Admin");
 		setPreferredSize(new java.awt.Dimension(600, 600));
+        System.out.prinntln("")
 
 		titleLabel.setText("Admin");
 		titleLabel.setBounds(51, 0, 490, 50);
